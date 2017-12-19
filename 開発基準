@@ -1,0 +1,19 @@
+１．VBA マクロ高速化のために停止すべき3項目：
+
+Application.ScreenUpdating = False '描画停止
+Application.EnableEvents = False 'イベント抑制
+Application.Calculation = xlCalculationManual '手動計算
+
+’開始
+With Application
+        .ScreenUpdating = False
+        .EnableEvents = False
+        .Calculation = xlCalculationManual
+    End With
+
+'終了
+With Application
+        .ScreenUpdating = True
+        .EnableEvents = True
+        .Calculation = xlCalculationAutomatic
+    End With
