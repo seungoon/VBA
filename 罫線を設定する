@@ -1,0 +1,4 @@
+１．罫線を設定
+'変数
+Set outSheet = Sheets("テストシート")
+outSheet.Range(outSheet.Cells(iRowData, 2), outSheet.Cells(iRowEnd, iColEnd)).Borders.LineStyle = True
