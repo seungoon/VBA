@@ -1,0 +1,26 @@
+※超早い～！
+
+１．取り込んだデータ内容をB6セルから設定する。
+'対象CSVファイルを取り込んでSheetに貼り付ける
+    Set qt = outSheet.QueryTables.Add(Connection:="TEXT;" & fileData, Destination:=outSheet.Range("B6")) ' CSV を開く
+    With qt
+        .TextFilePlatform = 932          ' 文字コードを指定
+        .TextFileParseType = xlDelimited ' 区切り文字の形式
+        .TextFileCommaDelimiter = True   ' カンマ区切り
+        .RefreshStyle = xlOverwriteCells ' セルに上書き
+        .TextFileColumnDataTypes = Array(xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, _
+         xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, _
+         xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, _
+         xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, _
+         xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, _
+         xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, _
+         xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, _
+         xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, _
+         xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, _
+         xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, _
+         xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, xlTextFormat, _
+         xlTextFormat)                   ' 全項目の型を文字列にする
+        .AdjustColumnWidth = False       ' 列幅を自動調整しない
+        .Refresh                         ' データを表示
+        .Delete                          ' CSV との接続を解除
+    End With
