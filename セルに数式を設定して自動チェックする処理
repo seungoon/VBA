@@ -1,0 +1,11 @@
+
+１．数式によりチェックして、エラーがある場合、セルの背景色を赤にする処理。
+'変数
+Set outSheet = Sheets("テストシート")
+
+'数式の設定
+  Dim fc As FormatCondition
+  Set fc = outSheet.Range(outSheet.Cells(iRowData, 2), outSheet.Cells(iRowData + iRowEnd + -1, 2)).FormatConditions.Add(Type:=xlExpression, Formula1:="=LEN(R[0]C[0])>5") '条件付き書式
+
+'書式の設定
+  fc.Interior.Color = RGB(255, 0, 0)
